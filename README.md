@@ -23,6 +23,20 @@ This repository contains the implementation of a decentralized voting system sma
 
 ## Test Cases
 
+- Test cases can be found in TestCases.yml format, it is written as a YML List format to ensure readability. Here is an example
+
+```yml
+- TestCaseId: 1
+  TestCaseDescription: Test that the title is the same as passed in the constructor
+  ExpectedResult: Title is same
+```
+
+- TestCaseId is the serial number of test case
+- TestDescription provides comprehensive description of testcase
+- ExpectedResult provides the expected output of the testcase
+
+![Test Case result](./test_case_passed.png)
+
 ## Key Features
 
 - **User Registration**: Users can register to vote, ensuring that only eligible participants can cast their votes.
