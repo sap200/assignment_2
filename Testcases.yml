@@ -1,0 +1,91 @@
+- TestCaseId: 1
+  TestCaseDescription: Test that the title is the same as passed in the constructor
+  ExpectedResult: Title is same
+
+- TestCaseId: 2
+  TestCaseDescription: Test that the description is the same as passed in the constructor
+  ExpectedResult: Description is same
+
+- TestCaseId: 3
+  TestCaseDescription: Test that the initial election status is NOT_STARTED (election has not started yet)
+  ExpectedResult: ElectionStatus is NOT_STARTED
+
+- TestCaseId: 4
+  TestCaseDescription: Test that the owner can start the election
+  ExpectedResult: Election status has changed to IN_PROGRESS
+
+- TestCaseId: 5
+  TestCaseDescription: Test that a non-owner account cannot start the election
+  ExpectedResult: We expect a revert
+
+- TestCaseId: 6
+  TestCaseDescription: Test that the owner cannot start the election when it is in progress
+  ExpectedResult: We expect a revert
+
+- TestCaseId: 7
+  TestCaseDescription: Test that the owner can stop the election when it is in progress
+  ExpectedResult: Election status changes to STOPPED
+
+- TestCaseId: 8
+  TestCaseDescription: Test that a non-owner cannot stop the election when it is in progress
+  ExpectedResult: The election doesn't stop, and the electionStatus doesn't change to STOPPED; it remains IN_PROGRESS
+
+- TestCaseId: 9
+  TestCaseDescription: Test trying to stop an election that has not started by the owner
+  ExpectedResult: Expect a revert since the election is not in progress
+
+- TestCaseId: 10
+  TestCaseDescription: Test trying to stop an already stopped election by the owner
+  ExpectedResult: Expect a revert since the election is not in progress
+
+- TestCaseId: 11
+  TestCaseDescription: Test registering a voter when the election is in NOT_STARTED state
+  ExpectedResult: Voter is registered
+
+- TestCaseId: 12
+  TestCaseDescription: Test registering a voter when the election is in IN_PROGRESS state
+  ExpectedResult: Voter is registered successfully
+
+- TestCaseId: 13
+  TestCaseDescription: Test that voter registration fails when the election is in the STOPPED state
+  ExpectedResult: Voter registration fails, and we expect a revert
+
+- TestCaseId: 14
+  TestCaseDescription: Test registering a voter who has already registered before
+  ExpectedResult: Registration fails, and we expect a revert
+
+- TestCaseId: 15
+  TestCaseDescription: Test that the owner can add a candidate when the election has not started
+  ExpectedResult: Candidate is added successfully
+
+- TestCaseId: 16
+  TestCaseDescription: Test that the owner can add a candidate when the election is in progress
+  ExpectedResult: Candidate is added successfully
+
+- TestCaseId: 17
+  TestCaseDescription: Test that a revert occurs when trying to add a candidate when the election is in the STOPPED state
+  ExpectedResult: Candidate is not added, and we expect a revert
+
+- TestCaseId: 18
+  TestCaseDescription: Test that a revert occurs when a non-owner tries to add a candidate
+  ExpectedResult: Candidate is not added, and we expect a revert
+
+- TestCaseId: 19
+  TestCaseDescription: Test that a voter can cast a vote for a valid candidate
+  ExpectedResult: Vote is recorded, and the voter's status is updated
+
+- TestCaseId: 20
+  TestCaseDescription: Test that a revert occurs when a voter casts a vote for an invalid candidate
+  ExpectedResult: We expect a revert
+
+- TestCaseId: 21
+  TestCaseDescription: Test that a revert occurs when a voter casts a vote when the election is not in progress
+  ExpectedResult: We expect a revert
+
+- TestCaseId: 22
+  TestCaseDescription: Test that a revert occurs when an unregistered voter casts a vote
+  ExpectedResult: We expect a revert
+
+- TestCaseId: 23
+  TestCaseDescription: Test trying to cast a duplicate vote
+  ExpectedResult: We expect a revert
