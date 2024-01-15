@@ -6,7 +6,20 @@ This repository contains the implementation of a decentralized voting system sma
 
 ## Design Choices
 
+- When deploying the contract for a specific election or poll, it's important to provide a name and description for clarity.
+- Enums are used to represent the state of the election, including "NOT_STARTED," "IN_PROGRESS," and "STOPPED." This allows flexibility in setting up elections and adding participants before starting.
+- Modifiers like `hasNotVotedYet` and `isElectionLive` are used to make the code modularized and reduce redundancy.
+- To ensure transparency, key variables are made public, enabling anyone to inspect the contract's state.
+- A `viewResults` function is provided for result retrieval, determining the winner on-chain will require a for loop and hence I have left it to be done off-chain in the frontend.
+- The `stopElection` function allows the contract owner to control the election thereby maintaining customizability.
+
 ## Security Considerations
+
+- A `hasNotVotedYet` modifier is in place to prevent double voting, maintaining the integrity of the election.
+- Candidate index validation is implemented, ensuring that an invalid candidate index provided by a user will trigger an EVM revert.
+- Checks on `electionState` ensure that only registered voters can cast their votes when the election is in progress.
+- The contract inherits the OpenZeppelin `Ownable` interface for secure access control.
+- Safe math operations are used to prevent overflow and underflow vulnerabilities, enhancing the contract's security.
 
 ## Test Cases
 
