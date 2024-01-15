@@ -10,7 +10,7 @@ This repository contains the implementation of a decentralized voting system sma
 
 ## Test Cases
 
-### Key Features
+## Key Features
 
 - **User Registration**: Users can register to vote, ensuring that only eligible participants can cast their votes.
 
