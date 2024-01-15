@@ -1,72 +1,34 @@
-## Foundry
+# Decentralized Voting System
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Introduction
 
-Foundry consists of:
+This repository contains the implementation of a decentralized voting system smart contract using Solidity.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Design Choices
 
-## Documentation
+## Security Considerations
 
-https://book.getfoundry.sh/
+## Test Cases
 
-## Usage
+### Key Features
 
-### Build
+- **User Registration**: Users can register to vote, ensuring that only eligible participants can cast their votes.
 
-```shell
-$ forge build
-```
+- **Candidate Management**: The owner of the contract has the authority to add candidates to the election, allowing for a dynamic list of candidates.
 
-### Test
+- **Secure Voting**: Registered voters can securely cast their votes for their preferred candidate, with mechanisms in place to prevent multiple votes from the same user.
 
-```shell
-$ forge test
-```
+- **Transparency**: The voting process is transparent, ensuring that the results are publicly accessible to maintain trust in the election process.
 
-### Format
+## Implementation
 
-```shell
-$ forge fmt
-```
+The implementation of this decentralized voting system is done using Solidity, a popular programming language for creating smart contracts on blockchain platforms. The contract employs appropriate data structures to store voter information and election results. Events are used to log important actions, providing transparency and auditability.
 
-### Gas Snapshots
+## Requirements
 
-```shell
-$ forge snapshot
-```
+The project's requirements include:
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
-
-### Problem Statement
-
-### Design Choices
-
-### Security Consideration
+- Implementation of the smart contract in Solidity.
+- Proper use of data structures to store voter information and election results.
+- Ensuring that voters can only cast one vote.
+- Inclusion of events to log essential actions during the voting process.
